@@ -1,7 +1,16 @@
 import React from 'react';
 
-const Functional = () => {
-  return <div>Functional Component</div>;
+const Functional = ({ name }) => {
+  console.log('Functional Component');
+
+  return (
+    <>
+      <div>
+        <p>Functional Component</p>
+        <p>{name}</p>
+      </div>
+    </>
+  );
 };
 
 export { Functional };

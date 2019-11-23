@@ -5,11 +5,13 @@ import { Functional } from './components/Functional';
 import './App.css';
 
 const App = () => {
+  console.log('App Component');
+
   return (
     <>
       <div>App</div>
-      <ClassBased />
-      <Functional />
+      <ClassBased country="Greece" />
+      <Functional name="Konstntinos" />
     </>
   );
 };
