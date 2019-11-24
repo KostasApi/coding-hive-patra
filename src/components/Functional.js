@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Functional = ({ name }) => {
   console.log('Functional Component');
@@ -11,6 +12,14 @@ const Functional = ({ name }) => {
       </div>
     </>
   );
+};
+
+Functional.defaultPros = {
+  name: ''
+};
+
+Functional.propTypes = {
+  name: PropTypes.string.isRequired
 };
 
 export { Functional };

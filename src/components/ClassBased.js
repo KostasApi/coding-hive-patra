@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ClassBased extends Component {
   constructor(props) {
@@ -41,5 +42,13 @@ class ClassBased extends Component {
     );
   }
 }
+
+ClassBased.defaultPros = {
+  country: ''
+};
+
+ClassBased.propTypes = {
+  country: PropTypes.string
+};
 
 export default ClassBased;
