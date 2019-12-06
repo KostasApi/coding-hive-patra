@@ -3,7 +3,7 @@ import yelp from './yelp';
 class BusinessService {
   getBusinesses = async ({ limit, term, location }) => {
     try {
-      const { data } = await yelp.get('/search', {
+      const { data } = await yelp.get('/v3/businesses/search', {
         params: {
           limit,
           term,

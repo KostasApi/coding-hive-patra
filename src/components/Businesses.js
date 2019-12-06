@@ -39,16 +39,15 @@ class Businesses extends Component {
 
   onSearchClick = async () => {
     const { term, location, limit } = this.state;
-    console.log('term, location, limit', term, location, limit);
     const businesses = await service.getBusinesses({
       term,
       location,
       limit
     });
+    console.log(businesses);
   };
 
   render() {
-    console.log('this.state', this.state);
     const { term, location, limit } = this.state;
 
     return (
