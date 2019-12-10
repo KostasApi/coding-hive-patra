@@ -12,7 +12,6 @@ const Business = ({ details, setLoading }) => {
   const getBusinessDetails = async () => {
     setLoading();
     const businessDetails = await service.getBusinessDetails(details.id);
-    console.log('businessDetails', businessDetails);
     setLoading();
     history.push(`business-details/${details.id}`, businessDetails);
   };

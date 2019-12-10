@@ -3,7 +3,7 @@ import { Carousel, Rate } from 'antd';
 
 const BusinessDetails = props => {
   const businessDetails = props.location.state;
-  console.log(businessDetails);
+
   return (
     <div style={{ width: '50%', height: '100vh', margin: '0 auto' }}>
       <h1>{businessDetails.name}</h1>
