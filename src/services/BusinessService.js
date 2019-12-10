@@ -16,6 +16,16 @@ class BusinessService {
       return error;
     }
   };
+
+  getBusinessDetails = async id => {
+    try {
+      const { data } = await yelp.get(`/v3/businesses/${id}`);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  };
 }
 
 const instance = new BusinessService();

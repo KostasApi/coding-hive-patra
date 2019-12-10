@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Row, Col, Input, Select, Button } from 'antd';
+import { Row, Col, Input, Select, Button, Alert } from 'antd';
 
 import service from '../services/BusinessService';
+import Business from './Business';
+import loadingImage from '../assets/loading.gif';
 
 const { Option } = Select;
 
@@ -38,26 +40,42 @@ class Businesses extends Component {
   };
 
   onSearchClick = async () => {
+    this.setLoading();
     const { term, location, limit } = this.state;
-    const businesses = await service.getBusinesses({
+    const data = await service.getBusinesses({
       term,
       location,
       limit
     });
-    console.log(businesses);
+
+    this.setState(() => ({
+      businesses: data.businesses ? data.businesses : [],
+      loading: false,
+      error: data.isAxiosError ? data.message : '',
+      term: '',
+      location: '',
+      limit: ''
+    }));
+  };
+
+  setLoading = () => {
+    this.setState(state => ({
+      loading: !state.loading
+    }));
   };
 
   render() {
-    const { term, location, limit } = this.state;
+    const { term, location, limit, businesses, loading, error } = this.state;
 
     return (
-      <>
-        <Row gutter={8} type="flex" justify="center">
+      <div style={{ width: '95%', height: '100vh', margin: '0 auto' }}>
+        <Row style={{ padding: 20 }} gutter={8} type="flex" justify="center">
           <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={4}>
             <Input
               size="large"
               placeholder="Search term"
               onChange={this.onBusinessChange}
+              value={term}
             />
           </Col>
           <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={4}>
@@ -66,7 +84,9 @@ class Businesses extends Component {
               placeholder="Location"
               style={{ width: '100%' }}
               onChange={this.onLocationChange}
+              value={location}
             >
+              <Option value="">Select Location</Option>
               <Option value="New York">New York</Option>
               <Option value="Los Angeles">Los Angeles</Option>
               <Option value="Chicago">Chicago</Option>
@@ -80,7 +100,9 @@ class Businesses extends Component {
               placeholder="Limit"
               style={{ width: '100%' }}
               onChange={this.onLimitChange}
+              value={limit}
             >
+              <Option value="">Select Limit</Option>
               <Option value="10">10</Option>
               <Option value="20">20</Option>
               <Option value="30">30</Option>
@@ -99,7 +121,44 @@ class Businesses extends Component {
             </Button>
           </Col>
         </Row>
-      </>
+        {loading ? (
+          <div
+            style={{
+              height: '90%',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <img
+              style={{ height: 300, margin: 'auto' }}
+              alt="Loading..."
+              src={loadingImage}
+            />
+          </div>
+        ) : (
+          <>
+            {error ? (
+              <Alert description={error} type="error" closable />
+            ) : (
+              <Row gutter={[24, 24]}>
+                {businesses.map(business => (
+                  <Col
+                    key={business.id}
+                    xs={24}
+                    sm={24}
+                    md={12}
+                    lg={12}
+                    xl={8}
+                    xxl={6}
+                  >
+                    <Business details={business} setLoading={this.setLoading} />
+                  </Col>
+                ))}
+              </Row>
+            )}
+          </>
+        )}
+      </div>
     );
   }
 }
