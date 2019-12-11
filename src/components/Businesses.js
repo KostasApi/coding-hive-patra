@@ -64,6 +64,12 @@ class Businesses extends Component {
     }));
   };
 
+  setError = error => {
+    this.setState(() => ({
+      error
+    }));
+  };
+
   render() {
     const { term, location, limit, businesses, loading, error } = this.state;
 
@@ -151,7 +157,11 @@ class Businesses extends Component {
                     xl={8}
                     xxl={6}
                   >
-                    <Business details={business} setLoading={this.setLoading} />
+                    <Business
+                      details={business}
+                      setLoading={this.setLoading}
+                      setError={this.setError}
+                    />
                   </Col>
                 ))}
               </Row>
