@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Input, Select, Button, Alert } from 'antd';
+import { connect } from 'react-redux';
 
-import service from '../services/BusinessService';
+import { fetchBusinesses } from '../actions/businessActions';
 import Business from './Business';
 import loadingImage from '../assets/loading.gif';
 
@@ -11,9 +12,6 @@ class Businesses extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      businesses: [],
-      loading: false,
-      error: null,
       term: '',
       location: '',
       limit: ''
@@ -40,38 +38,21 @@ class Businesses extends Component {
   };
 
   onSearchClick = async () => {
-    this.setLoading();
     const { term, location, limit } = this.state;
-    const data = await service.getBusinesses({
-      term,
-      location,
-      limit
-    });
+    const { getBusinesses } = this.props;
+
+    getBusinesses({ term, location, limit });
 
     this.setState(() => ({
-      businesses: data.businesses ? data.businesses : [],
-      loading: false,
-      error: data.isAxiosError ? data.message : '',
       term: '',
       location: '',
       limit: ''
     }));
   };
 
-  setLoading = () => {
-    this.setState(state => ({
-      loading: !state.loading
-    }));
-  };
-
-  setError = error => {
-    this.setState(() => ({
-      error
-    }));
-  };
-
   render() {
-    const { term, location, limit, businesses, loading, error } = this.state;
+    const { term, location, limit } = this.state;
+    const { businesses, loading, error } = this.props;
 
     return (
       <div style={{ width: '95%', height: '100vh', margin: '0 auto' }}>
@@ -157,11 +138,7 @@ class Businesses extends Component {
                     xl={8}
                     xxl={6}
                   >
-                    <Business
-                      details={business}
-                      setLoading={this.setLoading}
-                      setError={this.setError}
-                    />
+                    <Business details={business} />
                   </Col>
                 ))}
               </Row>
@@ -173,4 +150,16 @@ class Businesses extends Component {
   }
 }
 
-export default Businesses;
+const mapStateToProps = state => {
+  return {
+    businesses: state.business.businesses,
+    loading: state.business.loading,
+    error: state.business.error
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  getBusinesses: params => dispatch(fetchBusinesses(params))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Businesses);
