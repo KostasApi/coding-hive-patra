@@ -6,14 +6,18 @@ import service from '../services/BusinessService';
 
 const { Meta } = Card;
 
-const Business = ({ details, setLoading }) => {
+const Business = ({ details, setLoading, setError }) => {
   let history = useHistory();
 
   const getBusinessDetails = async () => {
     setLoading();
-    const businessDetails = await service.getBusinessDetails(details.id);
+    const data = await service.getBusinessDetails(details.id);
     setLoading();
-    history.push(`business-details/${details.id}`, businessDetails);
+    if (data.isAxiosError) {
+      setError(data.message);
+    } else {
+      history.push(`business-details/${details.id}`, data);
+    }
   };
 
   return (
