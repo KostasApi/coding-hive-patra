@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "235aa6d674916a2332d027f3344da7fd",
+    "revision": "efd0de5328a0a6c747b413fdf9f5685e",
     "url": "/coding-hive-patra/index.html"
   },
   {
-    "revision": "044768e6c4889065e558",
+    "revision": "1abc39604b6d0b1b8974",
     "url": "/coding-hive-patra/static/css/2.7f669fb7.chunk.css"
   },
   {
-    "revision": "f7a740fbb3bc4d912173",
+    "revision": "f8670d68021b02b3ed36",
     "url": "/coding-hive-patra/static/css/main.b71be294.chunk.css"
   },
   {
-    "revision": "044768e6c4889065e558",
-    "url": "/coding-hive-patra/static/js/2.c4084ba6.chunk.js"
+    "revision": "1abc39604b6d0b1b8974",
+    "url": "/coding-hive-patra/static/js/2.942b7c99.chunk.js"
   },
   {
-    "revision": "f7a740fbb3bc4d912173",
-    "url": "/coding-hive-patra/static/js/main.53d3a4d9.chunk.js"
+    "revision": "f8670d68021b02b3ed36",
+    "url": "/coding-hive-patra/static/js/main.60b7aae4.chunk.js"
   },
   {
     "revision": "a83adf5301514c0ad303",
