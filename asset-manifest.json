@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/coding-hive-patra/static/css/main.b71be294.chunk.css",
-    "main.js": "/coding-hive-patra/static/js/main.96ac87c0.chunk.js",
-    "main.js.map": "/coding-hive-patra/static/js/main.96ac87c0.chunk.js.map",
+    "main.js": "/coding-hive-patra/static/js/main.e3910a12.chunk.js",
+    "main.js.map": "/coding-hive-patra/static/js/main.e3910a12.chunk.js.map",
     "runtime-main.js": "/coding-hive-patra/static/js/runtime-main.2d077865.js",
     "runtime-main.js.map": "/coding-hive-patra/static/js/runtime-main.2d077865.js.map",
     "static/css/2.7f669fb7.chunk.css": "/coding-hive-patra/static/css/2.7f669fb7.chunk.css",
     "static/js/2.942b7c99.chunk.js": "/coding-hive-patra/static/js/2.942b7c99.chunk.js",
     "static/js/2.942b7c99.chunk.js.map": "/coding-hive-patra/static/js/2.942b7c99.chunk.js.map",
     "index.html": "/coding-hive-patra/index.html",
-    "precache-manifest.adca951f2ef744719e3bb65f58da8904.js": "/coding-hive-patra/precache-manifest.adca951f2ef744719e3bb65f58da8904.js",
+    "precache-manifest.cf3a787f354b2bd070e7b44f1868d432.js": "/coding-hive-patra/precache-manifest.cf3a787f354b2bd070e7b44f1868d432.js",
     "service-worker.js": "/coding-hive-patra/service-worker.js",
     "static/css/2.7f669fb7.chunk.css.map": "/coding-hive-patra/static/css/2.7f669fb7.chunk.css.map",
     "static/css/main.b71be294.chunk.css.map": "/coding-hive-patra/static/css/main.b71be294.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.7f669fb7.chunk.css",
     "static/js/2.942b7c99.chunk.js",
     "static/css/main.b71be294.chunk.css",
-    "static/js/main.96ac87c0.chunk.js"
+    "static/js/main.e3910a12.chunk.js"
   ]
 }
